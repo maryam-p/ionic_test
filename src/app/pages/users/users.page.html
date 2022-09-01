@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+     <ion-title>
+      کاربران
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let item of users; let i index">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{item.avatar}}">
+        </ion-avatar>
+        <ion-label>{{item.fname}} {{item.lname}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-button color="primary" (click)="edit(i)">Edit</ion-button>
+        <ion-button color="danger" (click)="delete(i)">Delete</ion-button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+  <ion-button expand="block" (click)="nextpage()">ساخت صندوق</ion-button>
+</ion-content>
+
+

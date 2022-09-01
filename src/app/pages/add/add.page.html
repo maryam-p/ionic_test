@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>اضافه کردن صندوق</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">نام صندوق</ion-label>
+    <ion-input [(ngModel)]="fund_name" type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">مدت زمان خواب پول</ion-label>
+    <ion-input [(ngModel)]="duration_money_sleep" type="number" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">کارمزد صندوق (تومان)</ion-label>
+    <ion-input [(ngModel)]="fund_fee" type="numbr" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">مبلغ هر سهم (تومان)</ion-label>
+    <ion-input [(ngModel)]="amount_portion" type="text" required></ion-input>
+  </ion-item>
+<br>
+  <ion-card>
+    <legend>   درصد وام    {{ loan_percentage }}</legend>
+    <ion-range color="primary" min="0" max="100" pin="true"
+    [(ngModel)]="loan_percentage" 
+    (ionChange)="onRangeChangeHandler(1)">
+</ion-range>
+
+    </ion-card>
+    <ion-card>
+      <legend>     درصد وام اضطراری      {{ emergency_loan_percentage }}</legend>
+      <ion-range color="primary" min="0" max="100" pin="true"
+      [(ngModel)]="emergency_loan_percentage" 
+      (ionChange)="onRangeChangeHandler(2)">
+  </ion-range>
+ 
+      </ion-card>
+
+      <ion-card>
+        <legend>   درصد سرمایه   {{ capital_percentage }}</legend>
+        <ion-range color="primary" min="0" max="100" pin="true"
+        [(ngModel)]="capital_percentage" 
+        (ionChange)="onRangeChangeHandler(3)">
+    </ion-range>
+
+        </ion-card>
+
+
+
+  <ion-button color="primary" class="ion-margin-top" type="submit" expand="block" (click)="onSubmit()">
+   ثبت
+  </ion-button>
+
+</ion-content>

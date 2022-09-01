@@ -1,17 +1,52 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 3
+     رویدادها  
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="ion-padding">
+    <ion-label> تاریخ ایجاد صندوق:  {{date}} </ion-label>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  </div>
+
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>افرادی که وام دریافت کرده اند</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+        
+            <ion-item *ngFor="let item of users_received_loans">
+                <ion-avatar slot="start">
+                <img src="{{item.avatar}}">
+              </ion-avatar>
+              <ion-label>{{item.fname}} {{item.lname}}</ion-label>
+            </ion-item>
+    
+        </ion-list>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>افرادی که وام دریافت نکرده اند</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+       
+            <ion-item *ngFor="let item of users_not_received_loans; let i index">
+              <ion-avatar slot="start">
+                <img src="{{item.avatar}}">
+              </ion-avatar>
+              <ion-label>{{item.fname}} {{item.lname}}</ion-label>
+            </ion-item>
+      
+      
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
